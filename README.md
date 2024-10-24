@@ -30,5 +30,5 @@ Minh họa các chức năng cần có trong 1 hệ thống giao thức ăn nhan
 - Trang dành cho shipper :  <br>  <br>
 ![ShipperForm](https://github.com/user-attachments/assets/248849cd-3905-4c45-83b0-aaa645b559e8)
 
-- To be continued ...  <br>  <br>
+
 
