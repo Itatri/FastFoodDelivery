@@ -1,5 +1,5 @@
 ## Phần mềm Winform C# minh họa hệ thống giao thức ăn nhanh ( Admin ) 
-
+Minh họa các chức năng cần có trong 1 hệ thống giao thức ăn nhanh sử dụng database NoSQL 
 
 ### Các chức năng
 
@@ -9,7 +9,7 @@
 
 ### Công nghệ
 
-- MongoDb ( Database ) 
+- MongoDb ( Database NoSQL ) 
 - Windows Forms App .Net Framework
 
 
