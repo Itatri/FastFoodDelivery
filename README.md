@@ -3,7 +3,9 @@ Minh họa các chức năng cần có trong 1 hệ thống giao thức ăn nhan
 
 ### Các chức năng
 
--  ...
+-  Chức nằng của người dùng
+-  Chức nằng của quản lí 
+-  Chức nằng của shipper
 
 
 
