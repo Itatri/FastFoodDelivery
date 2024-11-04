@@ -14,6 +14,8 @@ Minh họa các chức năng cần có trong 1 hệ thống giao thức ăn nhan
 - MongoDb ( Database NoSQL ) 
 - Windows Forms App .Net Framework
 
+### Phát triển : 
+- Lên ý tương làm Website, App đặt thức ăn dành cho Shipper , Khách hàng , Quản lý 
 
 
 
