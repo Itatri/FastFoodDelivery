@@ -3,9 +3,9 @@ Minh họa các chức năng cần có trong 1 hệ thống giao thức ăn nhan
 
 ### Các chức năng
 
--  Chức năng của người dùng
--  Chức năng của quản lí 
--  Chức năng của shipper
+-  Chức năng của User
+-  Chức năng của Admin 
+-  Chức năng của Shipper
 
 
 
@@ -15,7 +15,7 @@ Minh họa các chức năng cần có trong 1 hệ thống giao thức ăn nhan
 - Windows Forms App .Net Framework
 
 ### Phát triển : 
-- Lên ý tương làm Website, App đặt thức ăn dành cho Shipper , Khách hàng , Quản lý 
+- Website, App đặt thức ăn dành cho Shipper , Khách hàng , Quản lý 
 
 
 
