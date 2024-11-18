@@ -1,4 +1,4 @@
-## Phần mềm Winform C# minh họa hệ thống giao thức ăn nhanh ( Admin ) 
+## Phần mềm Winform C# minh họa hệ thống giao thức ăn nhanh 
 Minh họa các chức năng cần có trong 1 hệ thống giao thức ăn nhanh sử dụng database NoSQL 
 
 ### Các chức năng
