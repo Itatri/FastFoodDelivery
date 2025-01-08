@@ -1,4 +1,4 @@
-## Đồ án NoSQL : Winform C# minh họa hệ thống giao thức ăn nhanh 
+## Đồ án NoSQL : Minh họa hệ thống giao thức ăn nhanh 
 
 ### Functions
 
