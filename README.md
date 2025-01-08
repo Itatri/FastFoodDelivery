@@ -1,4 +1,4 @@
-## Đồ án NoSQL : Minh họa hệ thống giao thức ăn nhanh 
+## Đồ án NoSQL : Ứng dụng minh họa phần mềm giao thức ăn nhanh 
 
 ### Functions
 
