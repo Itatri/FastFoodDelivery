@@ -1,10 +1,10 @@
 ## Đồ án NoSQL : Ứng dụng minh họa phần mềm giao thức ăn nhanh 
 
-### Functions
+### Chức năng
 
 -  Minh họa chức năng của Khách hàng, Quản lý, Shipper
 
-### Tech
+### Công nghệ
 - MongoDb ( Database NoSQL ) 
 - Windows Forms App .Net Framework
 
