@@ -2,9 +2,7 @@
 
 ### Functions
 
--  Minh họa chức năng của Customer
--  Minh họa chức năng của Admin 
--  Minh họa chức năng của Shipper
+-  Minh họa chức năng của Customer, Admin, Shipper
 
 ### Tech
 - MongoDb ( Database NoSQL ) 
