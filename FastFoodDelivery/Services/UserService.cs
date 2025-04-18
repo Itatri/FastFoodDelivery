@@ -3,9 +3,8 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FastFoodDelivery.Services
 {
@@ -15,8 +14,10 @@ namespace FastFoodDelivery.Services
 
         public UserService()
         {
-            var client = new MongoClient("mongodb://localhost:27017");
-            var database = client.GetDatabase("fastfooddelivery");
+            var connectionString = ConfigurationManager.AppSettings["MongoDB:ConnectionString"];
+            var databaseName = ConfigurationManager.AppSettings["MongoDB:DatabaseName"];
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase(databaseName);
             _userCollection = database.GetCollection<BsonDocument>("users");
         }
 
@@ -30,7 +31,8 @@ namespace FastFoodDelivery.Services
             if (userDoc != null)
             {
                 return new UserInfo
-                {   Id = userDoc["userID"].AsString,
+                {
+                    Id = userDoc["userID"].AsString,
                     Username = userDoc["username"].AsString,
                     Name = userDoc["name"].AsString,
                     Email = userDoc["email"].AsString,
@@ -121,7 +123,7 @@ namespace FastFoodDelivery.Services
             return "TK0001"; // Nếu không có người dùng nào, bắt đầu từ TK0001
         }
 
-      
+
 
         public bool CreateNewUser(string username, string password, string name, string email, string phone, string address, string role, string avatarPath)
         {

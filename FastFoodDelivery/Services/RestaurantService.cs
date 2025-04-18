@@ -1,24 +1,23 @@
 ﻿using FastFoodDelivery.Models;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace FastFoodDelivery.Services
 {
-   
+
     public class RestaurantService
     {
         private readonly IMongoCollection<BsonDocument> _collection;
 
         public RestaurantService()
         {
-            var client = new MongoClient("mongodb://localhost:27017");
-            var database = client.GetDatabase("fastfooddelivery");
+            var connectionString = ConfigurationManager.AppSettings["MongoDB:ConnectionString"];
+            var databaseName = ConfigurationManager.AppSettings["MongoDB:DatabaseName"];
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase(databaseName);
             _collection = database.GetCollection<BsonDocument>("restaurents");
         }
 
@@ -70,7 +69,9 @@ namespace FastFoodDelivery.Services
                     Street = doc["address"]["street"].AsString,
                     City = doc["address"]["city"].AsString,
                     CuisineTypes = cuisineTypesString,
-                    Rating = doc["rating"].IsBsonNull ? 0 : doc["rating"].AsDouble // Đổi null thành 0 để tránh lỗi
+                    Rating = doc["rating"].IsBsonNull ? 0 : 
+                             doc["rating"].IsInt32 ? doc["rating"].AsInt32 : 
+                             doc["rating"].AsDouble
                 });
             }
 

@@ -2,25 +2,26 @@
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FastFoodDelivery.Services
 {
-   public class OrderService
+    public class OrderService
     {
         private readonly IMongoCollection<Order> _orders;
 
         public OrderService()
         {
-            var client = new MongoClient("mongodb://localhost:27017");
-            var database = client.GetDatabase("fastfooddelivery");
+            var connectionString = ConfigurationManager.AppSettings["MongoDB:ConnectionString"];
+            var databaseName = ConfigurationManager.AppSettings["MongoDB:DatabaseName"];
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase(databaseName);
             _orders = database.GetCollection<Order>("orders");
         }
 
- 
+
         public List<OrderItem> GetOrderItemsFromGrid(DataGridView dataGridView)
         {
             var orderItems = new List<OrderItem>();
