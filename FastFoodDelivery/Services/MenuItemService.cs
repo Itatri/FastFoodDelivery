@@ -3,9 +3,8 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FastFoodDelivery.Services
 {
@@ -15,8 +14,10 @@ namespace FastFoodDelivery.Services
 
         public MenuItemService()
         {
-            var client = new MongoClient("mongodb://localhost:27017");
-            var database = client.GetDatabase("fastfooddelivery");
+            var connectionString = ConfigurationManager.AppSettings["MongoDB:ConnectionString"];
+            var databaseName = ConfigurationManager.AppSettings["MongoDB:DatabaseName"];
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase(databaseName);
             _collection = database.GetCollection<BsonDocument>("menuitems");
         }
         // Lay Menu Mon An 
@@ -43,7 +44,7 @@ namespace FastFoodDelivery.Services
         }
 
 
-    
+
         // Lay Munu mon an theo nha hang da chon
         public List<MenuItem> GetMenuItemsByRestaurantId(string restaurantId)
         {
@@ -83,7 +84,7 @@ namespace FastFoodDelivery.Services
                     Description = doc["description"].AsString,
                     Price = price,
                     Category = doc["category"].AsString,
-                      ImagePath = doc.Contains("image") ? doc["image"].AsString : string.Empty // Đảm bảo trường ImagePath được lấy đúng cách
+                    ImagePath = doc.Contains("image") ? doc["image"].AsString : string.Empty // Đảm bảo trường ImagePath được lấy đúng cách
                 });
             }
 
@@ -92,7 +93,7 @@ namespace FastFoodDelivery.Services
 
         public void AddMenuItem(MenuItem menuItem)
         {
-                var document = new BsonDocument
+            var document = new BsonDocument
                  {
                 { "itemId", menuItem.ItemId },
                 { "restaurantId", menuItem.RestaurantId },
@@ -103,8 +104,8 @@ namespace FastFoodDelivery.Services
                 { "category", menuItem.Category }
                 };
 
-                _collection.InsertOne(document);
-         }
+            _collection.InsertOne(document);
+        }
         public void UpdateMenuItem(MenuItem menuItem)
         {
             if (menuItem == null)

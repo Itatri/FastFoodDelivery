@@ -3,21 +3,22 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Configuration; 
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace FastFoodDelivery.Services
 {
-
     public class VoucherService
     {
         private readonly IMongoCollection<Voucher> _voucherCollection;
 
         public VoucherService()
         {
-            var client = new MongoClient("mongodb://localhost:27017");
-            var database = client.GetDatabase("fastfooddelivery");
+            var connectionString = ConfigurationManager.AppSettings["MongoDB:ConnectionString"];
+            var databaseName = ConfigurationManager.AppSettings["MongoDB:DatabaseName"];
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase(databaseName);
             _voucherCollection = database.GetCollection<Voucher>("promotions");
         }
         // Lay voucher dua vao voucher da nhap 

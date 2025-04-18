@@ -1,10 +1,7 @@
 ﻿using FastFoodDelivery.Models;
-using MongoDB.Bson;
 using MongoDB.Driver;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Configuration;
 using System.Threading.Tasks;
 
 namespace FastFoodDelivery.Services
@@ -15,9 +12,11 @@ namespace FastFoodDelivery.Services
 
         public ReviewService()
         {
-       
-            var client = new MongoClient("mongodb://localhost:27017");
-            var database = client.GetDatabase("fastfooddelivery");
+
+            var connectionString = ConfigurationManager.AppSettings["MongoDB:ConnectionString"];
+            var databaseName = ConfigurationManager.AppSettings["MongoDB:DatabaseName"];
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase(databaseName);
             _reviews = database.GetCollection<Review>("reviews");
         }
 
